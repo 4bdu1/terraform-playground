@@ -22,12 +22,12 @@ resource "aws_db_instance" "example" {
 
   # passing using amazon secretsmanager
 
-  password = data.aws_secretsmanager_secret_version.db_password.secret_string
+  #   password = data.aws_secretsmanager_secret_version.db_password.secret_string
 
   # passing using var
-  #   password = var.db_password
+  password = var.db_password
 }
 
-data "aws_secretsmanager_secret_version" "db_password" {
-  secret_id = "mysql-master-password-stage"
-}
+# data "aws_secretsmanager_secret_version" "db_password" {
+#   secret_id = "mysql-master-password-stage"
+# }
